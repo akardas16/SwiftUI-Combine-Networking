@@ -5,6 +5,7 @@ enum QueryItems{
     case signup(email:String,password:String)
     case saveBio(bio:String)
     case createUser(name:String,job:String)
+    case updateUser(name:String,job:String)
     case empty
     
     var queries:[URLQueryItem] {
@@ -21,6 +22,9 @@ enum QueryItems{
         case .empty:
             return []
         case .createUser(name: let name, job: let job):
+            return [URLQueryItem(name: "name", value: name),
+            URLQueryItem(name: "job", value: job)]
+        case .updateUser(name: let name, job: let job):
             return [URLQueryItem(name: "name", value: name),
             URLQueryItem(name: "job", value: job)]
         }
