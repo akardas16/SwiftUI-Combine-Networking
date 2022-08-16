@@ -15,7 +15,7 @@ This repository shows how handle Rest API's in SwiftUI and Combine
 ## GET REQUEST
 ```swift
 NetworkingManager.instance
-            .requestPublisher(path: .listUser)
+            .requestPublisher(endpoint: .listUser)
             .decode(type: [UserModel].self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .sink { completion in
@@ -30,7 +30,7 @@ NetworkingManager.instance
 ## POST REQUEST
 ```swift
  NetworkingManager.instance
-            .requestPublisher(parameters:.createUser(name: name, job: job),method: .POST, path: .users)
+            .requestPublisher(parameters:.createUser(name: name, job: job),method: .POST, endpoint: .users)
             .decode(type: ResponseModel.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .sink { completion in
@@ -44,7 +44,7 @@ NetworkingManager.instance
 ## PUT REQUEST
 ```swift
  NetworkingManager.instance
-            .requestPublisher(parameters:.updateUser(name: name, job: job),method: .PUT, path: .updateUser)
+            .requestPublisher(parameters:.updateUser(name: name, job: job),method: .PUT, endpoint: .updateUser)
             .decode(type: NewUserModel.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .sink { completion in
@@ -61,7 +61,7 @@ NetworkingManager.instance
 * All user will be deleted
 ```swift
    NetworkingManager.instance
-            .requestPublisher(method: .DELETE, path: .users)
+            .requestPublisher(method: .DELETE, endpoint: .users)
             .decode(type: DeleteResponse.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .sink { completion in
