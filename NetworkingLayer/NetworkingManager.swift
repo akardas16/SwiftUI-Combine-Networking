@@ -14,7 +14,7 @@ class NetworkingManager{
     NetworkingManager.instance
         .requestPublisher(path: .users)
     */
-   private func request(parameters:QueryItems = .empty,method:httpMethods = .GET,path:Paths) async throws -> Data{
+   private func request(parameters:QueryItems = .empty,method:httpMethods = .GET,path:Endpoints) async throws -> Data{
         do {
             let url = baseUrl + path.name
             guard var urlPath = URLComponents(string: url) else { throw URLError(.badURL)}
@@ -31,7 +31,7 @@ class NetworkingManager{
 
     }
     
-    func requestPublisher(parameters:QueryItems = .empty,method:httpMethods = .GET,path:Paths) -> Future<Data,Error>{
+    func requestPublisher(parameters:QueryItems = .empty,method:httpMethods = .GET,path:Endpoints) -> Future<Data,Error>{
        Future { promise in
            Task{
                do{
