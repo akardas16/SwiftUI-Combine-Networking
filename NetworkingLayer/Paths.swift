@@ -4,6 +4,7 @@ enum Paths{
     case users
     case time(id:String)
     case listUser
+    case updateUser
     
     var name:String{
         switch self {
@@ -15,6 +16,8 @@ enum Paths{
             return "/users/\(id)/time"
         case .listUser:
             return "/api/users?page=2"
+        case .updateUser:
+            return "/api/users/2"
         }
     }
     
