@@ -1,7 +1,7 @@
 # SwiftUI-Combine-Networking
 This repository shows how handle Rest API's in SwiftUI and Combine
 
-* **Paths** enum includes paths which will be added the end of base URL
+* **Endpoints** enum includes paths which will be added the end of base URL
 
 
 * **QueryItems** enum includes parameters for requests *Example to authenticate user, we need to email and password from user*
