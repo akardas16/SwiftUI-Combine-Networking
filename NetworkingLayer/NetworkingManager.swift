@@ -12,7 +12,7 @@ class NetworkingManager{
      so, you don't need to write those parameters for GET request
     Example for GET request
     NetworkingManager.instance
-        .requestPublisher(path: .users)
+        .requestPublisher(endpoint: .users)
     */
    private func request(parameters:QueryItems = .empty,method:httpMethods = .GET,endpoint:Endpoints) async throws -> Data{
         do {
